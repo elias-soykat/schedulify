@@ -37,7 +37,7 @@ const OnboardingPage = () => {
     <div className="h-screen w-screen flex items-center justify-center">
       <Card>
         <CardHeader>
-          <CardTitle>Welcome to CalMarshal</CardTitle>
+          <CardTitle>Welcome to Schedulify</CardTitle>
           <CardDescription>
             We need the following information to set up your profile
           </CardDescription>
@@ -51,7 +51,7 @@ const OnboardingPage = () => {
                 name={fields.fullName.name}
                 defaultValue={fields.fullName.initialValue}
                 key={fields.fullName.key}
-                placeholder="Jan marshal"
+                placeholder="John Doe"
               />
               <p className="text-red-500 text-sm">{fields.fullName.errors}</p>
             </div>

@@ -13,27 +13,27 @@ export function Logos() {
         <Image
           src={NylasLogo}
           alt="Logo"
-          className="col-span-2 max-h-12 w-full object-contain lg:col-span-1 dark:invert"
+          className="col-span-2 max-h-12 w-9/12 mx-auto object-contain lg:col-span-1 dark:invert"
         />
         <Image
           src={NextjsLogo}
           alt="Logo"
-          className="col-span-2 max-h-12 w-full object-contain lg:col-span-1 dark:invert"
+          className="col-span-2 max-h-12 w-9/12 mx-auto object-contain lg:col-span-1 dark:invert"
         />
         <Image
           src={vercelLogo}
           alt="Logo"
-          className="col-span-2 max-h-12 w-full object-contain lg:col-span-1 dark:invert"
+          className="col-span-2 max-h-12 w-9/12 mx-auto object-contain lg:col-span-1 dark:invert"
         />
         <Image
           src={NylasLogo}
           alt="Logo"
-          className="col-span-2 max-h-12 w-full object-contain lg:col-span-1 dark:invert"
+          className="col-span-2 max-h-12 w-9/12 mx-auto object-contain lg:col-span-1 dark:invert"
         />
         <Image
           src={NextjsLogo}
           alt="Logo"
-          className="col-span-2 max-h-12 w-full object-contain lg:col-span-1 dark:invert"
+          className="col-span-2 max-h-12 w-9/12 mx-auto object-contain lg:col-span-1 dark:invert"
         />
       </div>
     </div>

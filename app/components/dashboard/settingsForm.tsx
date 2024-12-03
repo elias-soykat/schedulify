@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { SettingsAction } from "@/app/actions";
+import { UploadDropzone } from "@/app/lib/uploadthing";
 import { aboutSettingsSchema } from "@/app/lib/zodSchemas";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,16 +14,14 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { useFormState } from "react-dom";
-import { SubmitButton } from "../SubmitButton";
-import { UploadDropzone } from "@/app/lib/uploadthing";
-import Image from "next/image";
 import { X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { useState } from "react";
+import { useFormState } from "react-dom";
 import { toast } from "sonner";
+import { SubmitButton } from "../SubmitButton";
 
 interface iAppProps {
   fullName: string;
@@ -66,14 +65,14 @@ export function SettingsForm({ fullName, email, profileImage }: iAppProps) {
             <Input
               name={fields.fullName.name}
               key={fields.fullName.key}
-              placeholder="Jan Marshall"
+              placeholder="John Doe"
               defaultValue={fullName}
             />
             <p className="text-red-500 text-sm">{fields.fullName.errors}</p>
           </div>
           <div className="flex flex-col gap-y-2">
             <Label>Email</Label>
-            <Input disabled placeholder="Jan Marshall" defaultValue={email} />
+            <Input disabled placeholder="John Doe" defaultValue={email} />
           </div>
 
           <div className="grid gap-y-5">

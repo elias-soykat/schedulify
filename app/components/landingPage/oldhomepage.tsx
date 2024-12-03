@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
+import Logo from "@/public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/logo.png";
 
 export function OldHomePage() {
   return (
@@ -26,7 +26,7 @@ export function OldHomePage() {
             Scheduling made <span className="text-blue-600">Super Easy</span>
           </h1>
           <p className="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-            Get to know CalMarshal, the scheduling planner for everyone. Focus
+            Get to know Schedulify, the scheduling planner for everyone. Focus
             on your meetings, not on scheduling them. Free for individuals.
           </p>
           {/* Buttons */}
