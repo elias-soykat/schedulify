@@ -1,11 +1,12 @@
 import { redirect } from "next/navigation";
-import { Navbar } from "./components/landingPage/Navbar";
+import { CTA } from "./components/landingPage/Cta";
+import { Features } from "./components/landingPage/Features";
+import Footer from "./components/landingPage/Footer";
 import { Hero } from "./components/landingPage/Hero";
 import { Logos } from "./components/landingPage/Logos";
-import { Features } from "./components/landingPage/Features";
+import { Navbar } from "./components/landingPage/Navbar";
 import { Testimonial } from "./components/landingPage/Testimonial";
 import { auth } from "./lib/auth";
-import { CTA } from "./components/landingPage/Cta";
 
 export default async function Home() {
   const session = await auth();
@@ -22,6 +23,7 @@ export default async function Home() {
       <Features />
       <Testimonial />
       <CTA />
+      <Footer />
     </div>
   );
 }
