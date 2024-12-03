@@ -218,6 +218,7 @@ export async function updateEventTypeStatusAction(
     isChecked: boolean;
   }
 ) {
+  "use server";
   try {
     const session = await requireUser();
 
@@ -245,6 +246,7 @@ export async function updateEventTypeStatusAction(
 }
 
 export async function updateAvailabilityAction(formData: FormData) {
+  "use server";
   await requireUser();
 
   const rawData = Object.fromEntries(formData.entries());
@@ -283,6 +285,7 @@ export async function updateAvailabilityAction(formData: FormData) {
 }
 
 export async function createMeetingAction(formData: FormData) {
+  "use server";
   const getUserData = await prisma.user.findUnique({
     where: {
       username: formData.get("username") as string,
@@ -347,6 +350,7 @@ export async function createMeetingAction(formData: FormData) {
 }
 
 export async function cancelMeetingAction(formData: FormData) {
+  "use server";
   const session = await requireUser();
 
   const userData = await prisma.user.findUnique({

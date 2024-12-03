@@ -1,5 +1,7 @@
+import { updateAvailabilityAction } from "@/app/actions";
 import { SubmitButton } from "@/app/components/SubmitButton";
 import prisma from "@/app/lib/db";
+import { requireUser } from "@/app/lib/hooks";
 import { times } from "@/app/lib/times";
 import {
   Card,
@@ -19,9 +21,6 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { notFound } from "next/navigation";
-import React from "react";
-import { requireUser } from "@/app/lib/hooks";
-import { updateAvailabilityAction } from "@/app/actions";
 
 async function getData(userId: string) {
   const data = await prisma.availability.findMany({
@@ -49,9 +48,9 @@ const AvailabilityPage = async () => {
           In this section you can manage your availability.
         </CardDescription>
       </CardHeader>
-      <form action={async (formData: FormData) => {
-        await updateAvailabilityAction(formData);
-      }}>
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
+      <form action={updateAvailabilityAction}>
         <CardContent className="flex flex-col gap-y-4">
           {data.map((item) => (
             <div

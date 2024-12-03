@@ -1,6 +1,9 @@
 "use client";
 
+import { EditEventTypeAction } from "@/app/actions";
+import { eventTypeSchema } from "@/app/lib/zodSchemas";
 import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/ButtonGroup";
 import {
   Card,
   CardContent,
@@ -11,14 +14,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import Link from "next/link";
-import { SubmitButton } from "../SubmitButton";
-import { useFormState } from "react-dom";
-import { useForm } from "@conform-to/react";
-import { parseWithZod } from "@conform-to/zod";
-import { eventTypeSchema } from "@/app/lib/zodSchemas";
-import { EditEventTypeAction } from "@/app/actions";
 import {
   Select,
   SelectContent,
@@ -28,8 +23,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ButtonGroup } from "@/components/ui/ButtonGroup";
+import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "@conform-to/react";
+import { parseWithZod } from "@conform-to/zod";
+import Link from "next/link";
 import { useState } from "react";
+import { useFormState } from "react-dom";
+import { SubmitButton } from "../SubmitButton";
 
 interface iAppProps {
   id: string;
@@ -98,7 +98,7 @@ export function EditEventTypeForm({
               <Label>Url</Label>
               <div className="flex rounded-md">
                 <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-muted bg-muted text-muted-foreground text-sm">
-                  CalMarshal.com/
+                  {process.env.NEXT_PUBLIC_URL}/
                 </span>
                 <Input
                   type="text"

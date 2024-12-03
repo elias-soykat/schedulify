@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
@@ -12,16 +12,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ReactNode } from "react";
-import { requireUser } from "../lib/hooks";
-import prisma from "../lib/db";
-import { redirect } from "next/navigation";
+import { Toaster } from "@/components/ui/sonner";
 import Logo from "@/public/logo.png";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { ReactNode } from "react";
 import { DasboardLinks } from "../components/dashboard/DasboardLinks";
 import { ThemeToggle } from "../components/dashboard/ThemeToggle";
-import { Toaster } from "@/components/ui/sonner";
 import { auth, signOut } from "../lib/auth";
+import prisma from "../lib/db";
 
 async function getData(id: string) {
   const data = await prisma.user.findUnique({
@@ -62,9 +61,7 @@ export default async function Dashboard({ children }: { children: ReactNode }) {
             <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
               <Link href="/" className="flex items-center gap-2 font-semibold">
                 <Image src={Logo} alt="Logo" className="size-6" />
-                <p className="text-xl font-bold">
-                  Cal<span className="text-primary">Marshal</span>
-                </p>
+                <p className="text-xl font-bold">Schedulify</p>
               </Link>
             </div>
             <div className="flex-1">

@@ -10,13 +10,12 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React from "react";
-import { SubmitButton } from "../components/SubmitButton";
-import { useFormState } from "react-dom";
-import { parseWithZod } from "@conform-to/zod";
-import { onboardingSchemaLocale } from "../lib/zodSchemas";
 import { useForm } from "@conform-to/react";
+import { parseWithZod } from "@conform-to/zod";
+import { useFormState } from "react-dom";
 import { onboardingAction } from "../actions";
+import { SubmitButton } from "../components/SubmitButton";
+import { onboardingSchemaLocale } from "../lib/zodSchemas";
 
 const OnboardingPage = () => {
   const [lastResult, action] = useFormState(onboardingAction, undefined);
@@ -61,7 +60,7 @@ const OnboardingPage = () => {
 
               <div className="flex rounded-md">
                 <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-muted bg-muted text-muted-foreground text-sm">
-                  CalMarshal.com/
+                  {process.env.NEXT_PUBLIC_URL}/
                 </span>
                 <Input
                   type="text"
