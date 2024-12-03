@@ -7,11 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/prisma";
-import { format } from "date-fns";
 import { BookMarked, CalendarX2, Clock } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import React from "react";
 
 async function getData(username: string, eventName: string) {
   const eventType = await prisma.eventType.findFirst({

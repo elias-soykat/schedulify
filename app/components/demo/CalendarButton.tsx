@@ -5,7 +5,7 @@ import { mergeProps } from "@react-aria/utils";
 import type { CalendarState } from "@react-stately/calendar";
 import { useRef } from "react";
 
-export function CalendarButton(
+export function CalendarButton( 
   props: AriaButtonProps<"button"> & {
     state?: CalendarState;
     side?: "left" | "right";

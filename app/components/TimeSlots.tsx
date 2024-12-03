@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Prisma } from "@prisma/client";
 import {
   addMinutes,
   format,
@@ -6,12 +8,10 @@ import {
   isBefore,
   parse,
 } from "date-fns";
-import prisma from "../lib/db";
-import { Prisma } from "@prisma/client";
-import { nylas } from "../lib/nylas";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { NylasResponse, GetFreeBusyResponse } from "nylas";
+import { GetFreeBusyResponse, NylasResponse } from "nylas";
+import prisma from "../lib/db";
+import { nylas } from "../lib/nylas";
 
 interface iappProps {
   selectedDate: Date;
@@ -81,8 +81,15 @@ function calculateAvailableTimeSlots(
     new Date()
   );
 
+  interface TimeSlot {
+    startTime: number;
+    endTime: number;
+  }
+
   // Extract busy slots from Nylas data
-  const busySlots = nylasData.data[0].timeSlots.map((slot: any) => ({
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const busySlots = nylasData.data[0].timeSlots.map((slot: TimeSlot) => ({
     start: fromUnixTime(slot.startTime),
     end: fromUnixTime(slot.endTime),
   }));
@@ -101,7 +108,7 @@ function calculateAvailableTimeSlots(
     return (
       isAfter(slot, now) && // Ensure the slot is after the current time
       !busySlots.some(
-        (busy: { start: any; end: any }) =>
+        (busy: { start: Date; end: Date }) =>
           (!isBefore(slot, busy.start) && isBefore(slot, busy.end)) ||
           (isAfter(slotEnd, busy.start) && !isAfter(slotEnd, busy.end)) ||
           (isBefore(slot, busy.start) && isAfter(slotEnd, busy.end))

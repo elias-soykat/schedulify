@@ -42,6 +42,23 @@ async function getData(userId: string) {
   return data;
 }
 
+type TimeEvent = {
+  id: string;
+  title?: string;
+  when: {
+    startTime: number;
+    endTime: number;
+  };
+  conferencing: {
+    details: {
+      url: string;
+    };
+  };
+  participants: {
+    name: string;
+  }[];
+};
+
 const MeetingsPage = async () => {
   const session = await auth();
   const data = await getData(session?.user?.id as string);
@@ -64,7 +81,7 @@ const MeetingsPage = async () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {data.data.map((item) => (
+            {(data.data as TimeEvent[]).map((item: TimeEvent) => (
               <form key={item.id} action={cancelMeetingAction}>
                 <input type="hidden" name="eventId" value={item.id} />
                 <div className="grid grid-cols-3 justify-between items-center">

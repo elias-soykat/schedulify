@@ -1,5 +1,5 @@
 {
-  "name": "calcom-nylas",
+  "name": "scheduleify",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,6 +24,13 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@react-aria/button": "^3.11.0",
+    "@react-aria/focus": "^3.19.0",
+    "@react-aria/i18n": "^3.12.4",
+    "@react-aria/utils": "^3.26.0",
+    "@react-aria/visually-hidden": "^3.8.18",
+    "@react-stately/calendar": "^3.6.0",
+    "@react-types/shared": "^3.26.0",
     "@uploadthing/react": "^7.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -41,6 +48,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
     "react-stately": "^3.32.2",
+    "sharp": "^0.33.5",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
